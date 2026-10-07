@@ -1,0 +1,21 @@
+Bài 4 : Quản lý đường dẫn trong hệ thống tệp
+### Phần 1: Phân tích & Đề xuất (Bảng so sánh)
+
+| Tiêu chí | Cách 1: Đường dẫn tuyệt đối (`C:\Users\An\...`) | Cách 2: Đường dẫn tương đối (`../Data/...`) |
+| --- | --- | --- |
+| **Tính di động (Portability)** | **Kém:** Bị lỗi ngay khi chạy trên máy khác (khác tên User `An` hoặc khác ổ đĩa). | **Rất cao:** Chạy được trên mọi máy tính, miễn là giữ nguyên vị trí tương đối giữa các tệp/thư mục. |
+| **Độ dài câu lệnh** | Dài, cồng kềnh, dễ gõ sai. | Ngắn gọn, rõ ràng, dễ quản lý. |
+| **Tính an toàn & Linh hoạt** | Dễ rò rỉ cấu trúc hệ thống cá nhân, bị gắn cứng (*hard-coded*) khó bảo trì. | An toàn, linh hoạt, chuẩn hóa cho làm việc nhóm và quản lý mã nguồn (Git). |
+
+---
+
+### Phần 2: Lựa chọn & Giải thích
+
+* **Giải pháp tối ưu:** **Chọn Cách 2 (Đường dẫn tương đối)**.
+* **Lý do:** Đáp ứng hoàn toàn quy tắc nghiệp vụ, giúp dự án di động (portable) — bạn bè của An có thể tải thư mục `Project` về và chạy ngay mà không cần sửa lại đường dẫn.
+
+
+* **Giải thích ký hiệu:**
+* **`.` (Một dấu chấm):** Trỏ đến **thư mục hiện tại** (nơi script hoặc terminal đang đứng).
+* **`..` (Hai dấu chấm):** Trỏ đến **thư mục cha** (lùi ra thư mục cấp trên 1 bậc so với thư mục hiện tại).
+* *Ví dụ trong bài:* Code đang ở `src`, dùng `..` để lùi ra thư mục `Project`, sau đó truy cập vào `Data/users.csv`.
